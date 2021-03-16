@@ -19,7 +19,7 @@
         <!-- sign in -->
         <div class="signinBox">
 
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form_login">
                 <!--username-->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -29,7 +29,7 @@
                 <!--password-->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="password" required lay-verify="required"
+                    <input type="password" name="password" required lay-verify="required|pwd"
                         placeholder="Please input password" autocomplete="off" class="layui-input">
                 </div>
                 <!--submit button-->
@@ -48,7 +48,7 @@
         <!-- register -->
         <div class="registerBox">
 
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form_reg">
                 <!--username-->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -58,13 +58,13 @@
                 <!--password-->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="password" required lay-verify="required"
+                    <input type="password" name="password" required lay-verify="required|pwd"
                         placeholder="Please input password" autocomplete="off" class="layui-input">
                 </div>
                 <!--password reconfirm-->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="repassword" required lay-verify="required"
+                    <input type="password" name="repassword" required lay-verify="required|pwd|repwd"
                         placeholder="Please input the password again" autocomplete="off" class="layui-input">
                 </div>
                 <!--submit button-->
@@ -83,9 +83,10 @@
     </div>
     <!--import layui js-->
     <script src="/assets/lib/layui/layui.all.js"></script>
-
     <!--import jquery-->
     <script src="/assets/lib/jquery.js"></script>
+    <!--import baseAPI.js-->
+    <script src="/assets/js/baseAPI.js"></script>
     <!--import self-designed js-->
     <script src="/assets/js/login.js"></script>
 
