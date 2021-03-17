@@ -8,4 +8,13 @@ $.ajaxPrefilter(function (options) {
     if (options.url.indexOf('/my/') !== -1) {
         options.headers = { Authorization: localStorage.getItem('token') || '' };
     };
+    //If failed to login, then skip to login.html
+    options.complete = function (res) {
+        console.log(res.responseJSON);
+        if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
+            //clear token
+            localStorage.removeItem('token');
+            location.href = '/login.html';
+        }
+    }
 })

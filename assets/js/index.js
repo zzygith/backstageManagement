@@ -1,11 +1,9 @@
 $(function () {
-
     getUserInfo();
-
-    let layer = layui.layer
+    //Clear token and skip to login.html when 'sign out' button is clicked.
     $('#btnLogout').on('click', function () {
         layer.confirm('Sign out rightnow?', { icon: 3, title: '提示' }, function () {
-            localStorage.removeItem('tikon');
+            localStorage.removeItem('token');
             location.href = '/login.html';
             layer.close(index);
         })
@@ -19,11 +17,11 @@ function getUserInfo() {
         url: '/my/userinfo',
         success: function (res) {
             if (res.status !== 0) {
-                return layui.msg('Failed to get user information')
+                return layer.msg('Failed to get user information')
             }
-            console.log(res.data);
             renderAvatar(res.data);
         }
+
     })
 }
 
@@ -31,8 +29,8 @@ function getUserInfo() {
 function renderAvatar(user) {
     let name = user.nickname || user.username;
     $('#welcome').html('welcome&nbsp;&nbsp' + name);
+    //Take the first letter of name as avatar
     let first = name[0].toUpperCase();
-    console.log(first);
     $('.avatar').html(first);
 
 }
