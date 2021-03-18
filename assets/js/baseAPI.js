@@ -10,7 +10,6 @@ $.ajaxPrefilter(function (options) {
     };
     //If failed to login, then skip to login.html
     options.complete = function (res) {
-        console.log(res.responseJSON);
         if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
             //clear token
             localStorage.removeItem('token');
