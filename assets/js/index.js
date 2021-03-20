@@ -2,7 +2,7 @@ $(function () {
     getUserInfo();
     //Clear token and skip to login.html when 'sign out' button is clicked.
     $('#btnLogout').on('click', function () {
-        layer.confirm('Sign out rightnow?', { icon: 3, title: '提示' }, function () {
+        layer.confirm('Sign out rightnow?', { icon: 3, title: 'Info', btn: ['Yes', 'Cancel'] }, function () {
             localStorage.removeItem('token');
             location.href = '/login.html';
             layer.close(index);
@@ -21,10 +21,8 @@ function getUserInfo() {
             }
             renderAvatar(res.data);
         }
-
     })
 }
-
 //Render avatar of user
 function renderAvatar(user) {
     let name = user.nickname || user.username;

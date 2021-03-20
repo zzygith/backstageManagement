@@ -20,13 +20,57 @@
 
             <!--List area-->
 
+            <table class="layui-table">
+                <colgroup>
+                    <col>
+                    <col width="150">
+                    <col width="180">
+                    <col width="150">
+                    <col width="150">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Publish time</th>
+                        <th>State</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+
+
             <!--Page area-->
+            <div id="pageArea"></div>
+
+
+            <!--Template engine for list data-->
+            <script type="text/html" id="tpl-table">
+                {{each data}}
+                <tr>
+                    <td>{{$value.title}}</td>
+                    <td>{{$value.cate_name}}</td>
+                    <td>{{$value.pub_date|dataFormat}}</td>
+                    <td>{{$value.state}}</td>
+                    <td>
+                        <button type='button' class='layui-btn layui-btn-xs btn-edit' data-id='{{$value.Id}}'>Edit</button>
+                        <button type='button' class='layui-btn layui-btn-danger layui-btn-xs btn-delete' data-id='{{$value.Id}}'>Delete</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </script>
+
 
         </div>
     </div>
     <script src="../assets/lib/jquery.js"></script>
     <script src="../assets/lib/layui/layui.all.js"></script>
     <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
 
     <script src="../assets/js/article/art_list.js"></script>
 

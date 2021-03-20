@@ -9,29 +9,75 @@
 
 </head>
 
-<body>
-    <div>
+<!-- <body>
+    <div class="ii">
         <span>A</span>
     </div>
 
+
+
+
+    <script src="assets/lib/jquery.js"></script>
+
+    <script>
+        $(function () {
+            let data = {
+                "name": 'zhangsan',
+                "age": 18
+            }
+            htmlfordiv = template('tpl', data);
+            $('.ii').html(htmlfordiv);
+            console.log($('.ii'));
+
+        })
+
+    </script>
+    <script src="assets/lib/template-web.js"></script>
+    <script type="text/html" id="tpl">
+<div>{{$value}}</div>
+</script>
+
+
+
+
+
+
+</body> -->
+
+<body>
+    <button id='1'>que</button>
+    <div class="qw"></div>
     <script src="assets/lib/jquery.js"></script>
     <script>
+ 
 
-        var i = 1;
+        document.querySelector('body').addEventListener('click',function(e){
+            console.log(e.srcElement);
+            console.log(e.target.nodeName);
+            console.log(e.target.id);
+            e.target.id=5;
+        })
 
-        if (i > 0) {
-            i = 2;
-            break;
-            i = 10;
+
+        let i = 1;
+        let bb=document.querySelector('.qw')
+        document.querySelector('button').onclick=function(){
+                bb.innerHTML = '<button>223</button>';
+            i = i + 1;
+            console.log(i);
+        }
+        const addZero = num => num < 10 ? '0' + num : num;
+        console.log(addZero(6));
+
+        if(typeof(saas)=='undefined' ){
+            console.log('ifshiyong');
         }
 
+/*         btn.addEventListener('click', function () {
+        
+                }) */
 
-
-
-        console.log(i);
     </script>
-
-
 </body>
 
 </html>

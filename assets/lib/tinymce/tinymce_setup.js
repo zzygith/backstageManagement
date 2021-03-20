@@ -4,10 +4,10 @@ function initEditor() {
     selector: 'textarea',
     //方向从左到右
     directionality: 'ltr',
-    //语言选择中文
-    language: 'zh_CN',
-    //高度为400
-    height: 300,
+
+
+    //高度为600
+    height: '300px',
     statusbar: false,
     width: '100%',
     //工具栏上面的补丁按钮

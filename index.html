@@ -17,17 +17,6 @@
             <!-- Head -->
 
             <ul class="layui-nav layui-layout-right">
-                <li class="layui-nav-item">
-                    <a href="javascript:;" class="userinfo">
-                        <span class="avatar"></span>
-                        presonal center
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">Basic information</a></dd>
-                        <dd><a href="">Change photo</a></dd>
-                        <dd><a href="">Reset password</a></dd>
-                    </dl>
-                </li>
                 <li class="layui-nav-item"><a href="javascript:;" id='btnLogout'>Sign out</a></li>
             </ul>
         </div>
@@ -48,9 +37,10 @@
                             management</a>
                         <dl class="layui-nav-child">
                             <dd><a href="/article/art_list.html" target="fm"><i
-                                        class="layui-icon layui-icon-app"></i>Article list</a>
+                                        class="layui-icon layui-icon-app artList"></i>Article list</a>
                             </dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>Publish article</a></dd>
+                            <dd><a href="/article/art_pub.html" target="fm"><i
+                                        class="layui-icon layui-icon-app pubArt"></i>Publish article</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -80,6 +70,7 @@
     </div>
     <!--import layui js-->
     <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/lib/layui/lang/EN.js"></script>
     <!--import jQuery-->
     <script src="/assets/lib/jquery.js"></script>
     <!--import baseAPI-->
