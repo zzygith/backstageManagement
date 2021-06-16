@@ -25,44 +25,41 @@ $(function () {
     //Get the article lists function
     function initTable() {
 
-        //添加分类
-        /*             let tianjia = {
-                name: 'Politics',
-                alias: 'wuwu'
-            }
-                $.ajax({
-                    method: 'POST',
-                    url: '/my/article/addcates',
-                    data: tianjia,
-                    success: function (res) {
-                        console.log('添加分类');
-                        console.log(res);
-                    }
-                }) */
-
-
-        //删除分类
-        /*         $.ajax({
-                    method: 'GET',
-                    url: '/my/article/deletecate/' + 1,
-                    success: function (res) {
-                        console.log('删除分类');
-                        console.log(res);
-                    }
-                }) */
-
-
         $.ajax({
             method: 'GET',
             url: '/my/article/list',
             data: q,
             success: function (res) {
-                console.log(res);
                 if (res.status !== 0) {
                     return layer.msg('Failed to get article list')
                 }
                 res.data = res.data.reverse();
-                console.log(res.data)
+                console.log(1111, res.data)
+                
+                for (let i in res.data) {
+                    console.log(res.data[i]);
+                    switch(res.data[i].cate_name)
+                    {
+                        case null:
+                            res.data[i].cate_name="Science"
+                            break;
+                        case "科目1":
+                            res.data[i].cate_name="Culture"
+                            break;
+                        case "666":
+                            res.data[i].cate_name="Economy"
+                            break;
+                        case "股市":
+                            res.data[i].cate_name="Entertainment"
+                            break;
+                        case "wed":
+                            res.data[i].cate_name="Politics"
+                            break;
+                        default:
+                    
+                    } 
+                }
+
                 //Use template engine to render page
                 let htmlStr = template('tpl-table', res);
                 $('tbody').html(htmlStr);

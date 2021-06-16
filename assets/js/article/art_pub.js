@@ -16,9 +16,6 @@ $(function () {
     }
 
 
-
-
-
     let art_state = 'submitted';
     //if click 'save as draft', then change the state
     $('#btnSave2').on('click', function () {
