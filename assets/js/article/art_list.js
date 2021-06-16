@@ -34,10 +34,9 @@ $(function () {
                     return layer.msg('Failed to get article list')
                 }
                 res.data = res.data.reverse();
-                console.log(1111, res.data)
                 
                 for (let i in res.data) {
-                    console.log(res.data[i]);
+
                     switch(res.data[i].cate_name)
                     {
                         case null:
