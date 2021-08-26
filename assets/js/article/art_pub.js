@@ -48,16 +48,24 @@ $(function () {
                             editor.setContent(artContent.content);
                       });
                     }
-                  });
+/*                     setup: function (editor) {
+                        editor.on('init', areaT);
+                    } */
+                });
+/*                 function areaT() {
+                    tinymce.get("default").setContent(artContent.content); 
+                } */
 /*                 console.log(tinymce.get("default").getContent());
                     tinymce.get("default").setContent(artContent.content); */
-                    sessionStorage.removeItem('editModel');
+                sessionStorage.removeItem('editModel');
+                editArticle();
                 }
             })
     }else {
         tinymce.init({
             selector: 'textarea#default'
-            });
+        });
+        editArticle();
     }
 
 /*             $.ajax({
@@ -76,7 +84,7 @@ $(function () {
             }) */
 
 
-
+    function editArticle() {
     let art_state = 'submitted';
     //if click 'save as draft', then change the state
     $('#btnSave2').on('click', function () {
@@ -110,6 +118,40 @@ $(function () {
 
 
     })
+}
+/*     let art_state = 'submitted';
+    //if click 'save as draft', then change the state
+    $('#btnSave2').on('click', function () {
+        art_state = 'draft';
+    })
+
+    $('#form_pub').on('submit', function (e) {
+        e.preventDefault();
+        console.log($(this).serialize());
+        let fd = new FormData($(this)[0]);
+        fd.append('state', art_state);
+        var wwe = new Blob([''], { type: "image/png" });
+        //fd.append('cover_img', wwe); 
+        $.ajax({
+            method: 'POST',
+            url: '/my/article/add',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log(res);
+                if (res.status !== 0) {
+                    return layer.msg('Failed to publish article')
+                }
+                layer.msg('Publish articles successfully');
+                window.parent.$('.artList').click();
+
+            }
+
+        })
+
+
+    }) */
 
 
 })
