@@ -47,7 +47,8 @@
                     <!-- 为富文本编辑器外部的容器设置高度 -->
                     <div class="layui-input-block" style="height: 400px;">
                         <!-- 重要：将来这个 textarea 会被初始化为富文本编辑器 -->
-                        <textarea name="content"></textarea>
+                        <textarea name="content" id="default"></textarea>
+                        <!-- <textarea id="default"></textarea> -->
                     </div>
                 </div>
                 <!--Forth line-->
@@ -69,9 +70,9 @@
     <script src="../assets/js/baseAPI.js"></script>
 
     <!--Import rich text editor-->
-    <script src="../assets/lib/tinymce/tinymce.min.js"></script>
-    <script src="../assets/lib/tinymce/tinymce_setup.js"></script>
-
+    <script src="../assets/lib/tinymce/tinymce.min.js"></script> 
+    <!-- <script src="../assets/lib/tinymce/tinymce_setup.js"></script>  -->
+   <!--  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
     <script src="../assets/js/article/art_pub.js"></script>
 </body>
 

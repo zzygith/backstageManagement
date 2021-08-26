@@ -95,7 +95,6 @@ $(function () {
                     initTable();
                 }
             })
-
             layer.close(index);
 
         });
@@ -105,26 +104,12 @@ $(function () {
         let edi_id = $(this).attr('data-id')
         layer.confirm('Are you sure to edit this article?', { icon: 3, title: 'Info', btn: ['Yes', 'Cancel'] }, function (index) {
             //If yes
-            $.ajax({
-                method: 'GET',
-                url: '/my/article/' + edi_id,
-                success: function (res) {
-                    if (res.status !== 0) {
-                        return layer.msg('Failed to delete article')
-                    }
-                    layer.msg('Load article successfully')
-                    // sessionStorage.setItem('article', res.data);
-                    sessionStorage.setItem('article', JSON.stringify(res.data));
-                    //Skip to publish article page
-                    window.parent.$('.pubArt').click();
-                }
-            })
-
+            // Set a mark, with this mark art_pub page will load the unfinished article.
+            sessionStorage.setItem('editModel', edi_id);
+            //Skip to publish article page
+            window.parent.$('.pubArt').click();
             layer.close(index);
-
         });
     })
-
-
 })
 
