@@ -34,24 +34,22 @@ $(function () {
                     return layer.msg('Failed to get article list')
                 }
                 res.data = res.data.reverse();
-                
                 for (let i in res.data) {
-
-                    switch(res.data[i].cate_name)
+                    switch(res.data[i].cate_id)
                     {
-                        case null:
+                        case "0":
                             res.data[i].cate_name="Science"
                             break;
-                        case "科目1":
+                        case "1":
                             res.data[i].cate_name="Culture"
                             break;
-                        case "666":
+                        case "2":
                             res.data[i].cate_name="Economy"
                             break;
-                        case "股市":
+                        case "3":
                             res.data[i].cate_name="Entertainment"
                             break;
-                        case "wed":
+                        case "4":
                             res.data[i].cate_name="Politics"
                             break;
                         default:

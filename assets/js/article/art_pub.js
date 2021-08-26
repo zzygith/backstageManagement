@@ -3,9 +3,18 @@ $(function () {
     var form = layui.form
     //Initialize rich editor
     /* initEditor() */
-    tinymce.init({
+/*     tinymce.init({
     selector: 'textarea#default'
-  }); 
+    }); */
+/*     tinymce.init({
+        selector: 'textarea#default',
+
+        setup: function (editor) {
+          editor.on('init', function () {
+            editor.setContent('Using the on init stuff!');
+          });
+        }
+      }); */
 
 /*     if (sessionStorage.getItem('article') !== null) {
         console.log(JSON.parse(sessionStorage.getItem('article')))
@@ -22,21 +31,33 @@ $(function () {
         $.ajax({
                 method: 'GET',
                 url: '/my/article/' + edi_id,
-                success: function (res) {
+            success: function (res) {
                     if (res.status !== 0) {
                         return layer.msg('Failed to delete article')
-                    }
+                }
                     layer.msg('Load article successfully')
-                    let artContent = res.data;
+                let artContent = res.data[0];
+                console.log(artContent);
                     $('[name=title]').val(artContent.title);
                     $('[name=cate_id]').val(artContent.cate_id);
-                    $('[placeholder="Please select article catagory"]').val($('[name=cate_id] option:selected').text());
-                    tinymce.get("default").setContent(artContent.content);
+                $('[placeholder="Please select article catagory"]').val($('[name=cate_id] option:selected').text());
+                tinymce.init({
+                    selector: 'textarea#default',
+                    setup: function (editor) {
+                        editor.on('init', function () {
+                            editor.setContent(artContent.content);
+                      });
+                    }
+                  });
+/*                 console.log(tinymce.get("default").getContent());
+                    tinymce.get("default").setContent(artContent.content); */
                     sessionStorage.removeItem('editModel');
                 }
             })
-
-
+    }else {
+        tinymce.init({
+            selector: 'textarea#default'
+            });
     }
 
 /*             $.ajax({
@@ -64,10 +85,11 @@ $(function () {
 
     $('#form_pub').on('submit', function (e) {
         e.preventDefault();
+        console.log($(this).serialize());
         let fd = new FormData($(this)[0]);
         fd.append('state', art_state);
         var wwe = new Blob([''], { type: "image/png" });
-        fd.append('cover_img', wwe);
+/*         fd.append('cover_img', wwe); */
         $.ajax({
             method: 'POST',
             url: '/my/article/add',
