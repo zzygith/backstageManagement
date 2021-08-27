@@ -3,8 +3,11 @@
 $.ajaxPrefilter(function (options) {
     //Before sending the ajax requests, concatenate the url with the same root path.
     /*     options.url = "https://sleepy-journey-65673.herokuapp.com/"+'http://www.liulongbin.top:3007' + options.url; */
-/*     options.url = 'http://www.liulongbin.top:3007' + options.url; */
-          options.url = 'http://127.0.0.1:3007' + options.url; 
+    /*     options.url = 'http://www.liulongbin.top:3007' + options.url; */
+    /*     options.url = 'http://127.0.0.1:3007' + options.url;  */
+
+    //Self-designed api deployed on heroku.
+    options.url = 'https://backmanage.herokuapp.com' + options.url; 
     //Before sending the ajax requests, set headers for limited API
     if (options.url.indexOf('/my/') !== -1) {
         options.headers = { Authorization: localStorage.getItem('token') || '' };
