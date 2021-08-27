@@ -41,6 +41,8 @@ $(function () {
                     return layer.msg(res.message);
                 }
                 layer.msg('Register successfully')
+                $('.registerBox').hide();
+                $('.signinBox').show();
             }
         )
     })
