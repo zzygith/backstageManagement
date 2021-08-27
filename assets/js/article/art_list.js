@@ -65,11 +65,11 @@ $(function () {
         })
 
 
-        //页码
+        //Page number
         /*         function renderPage(total) {
                     laypage.render({
-                        elem: 'pageArea' //注意，这里的 test1 是 ID，不用加 # 号
-                        , count: total, //数据总数，从服务端得到
+                        elem: 'pageArea'
+                        , count: total, //Total number of data
                         limit: q.pagesize,
                         curr: q.pagenum
                     })
